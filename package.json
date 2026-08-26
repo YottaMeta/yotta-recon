@@ -1,0 +1,32 @@
+{
+  "name": "@yottameta/yotta-recon",
+  "version": "0.1.0",
+  "description": "元析（元征）—— 跨智能体的网络侦察技能：零依赖自研端口/服务/版本指纹探测，用于安全测试与资产盘点，内建授权纪律（Scope Guard）。触发：网络扫描、端口/服务识别、资产盘点、CDN 溯源、安全测试侦察阶段时。边界：仅扫描明确授权的目标；不主动攻击、不渗漏、不产生破坏。",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "yotta-recon"
+  ],
+  "files": [
+    "SKILL.md",
+    "LICENSE",
+    "README.md",
+    "install.sh",
+    "references",
+    "scripts",
+    "assets",
+    "bin",
+    "NOTICE",
+    "CHANGELOG.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YottaMeta/yotta-recon.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "yotta-recon": "bin/install.js"
+  }
+}
