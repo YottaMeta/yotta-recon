@@ -1,4 +1,8 @@
 # 更新日志
+## v0.1.1 (2026-08-26)
+
+- 中文名统一为「元析」（去掉「（元征）」双名）：SKILL.md / README / package.json / 引擎 TOOL_CN 与 docstring / 测试断言 / NOTICE 同步。
+- 版本 0.1.0 → 0.1.1（SKILL.md frontmatter + package.json + 引擎 VERSION 对齐）。
 
 ## v0.1.0 (2026-08-26)
 

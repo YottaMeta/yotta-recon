@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="yotta-recon banner" width="100%" />
 </p>
 
-<h1 align="center">yotta-recon · 元析（元征）</h1>
+<h1 align="center">yotta-recon · 元析</h1>
 
 <p align="center">YottaMeta 自有的零依赖网络侦察引擎：<b>端口扫描 · 服务识别 · 版本指纹</b>，纯 Python 3.8+ 标准库实现，内建授权纪律（Scope Guard）。适用于安全测试侦察阶段、资产盘点、暴露面摸底等需要先摸清目标开放端口与服务版本的场景。</p>
 <p align="center">检测到扫描网络 / 端口扫描 / 服务识别 / 版本指纹 / 资产盘点 / CDN 溯源 / 安全测试侦察阶段 等意图时自动激活——<b>不靠关键词碰运气，按待侦察目标判定</b>。</p>

@@ -499,7 +499,7 @@ class TestOutput(unittest.TestCase):
             yr.write_report(path, meta, results, [])
             with open(path, "r", encoding="utf-8") as fh:
                 text = fh.read()
-            self.assertIn("# 元析（元征） 侦察报告", text)
+            self.assertIn("# 元析 侦察报告", text)
             self.assertIn("| 22 |", text)
             self.assertIn("openssh", text)
             self.assertIn("《网络安全法》", text)
@@ -525,7 +525,7 @@ class TestCli(unittest.TestCase):
     def test_version(self):
         r = self._run("--version")
         self.assertEqual(r.returncode, 0)
-        self.assertIn("yotta-recon 0.1.0", r.stdout)
+        self.assertIn("yotta-recon 0.1.1", r.stdout)
 
     def test_list_ports(self):
         r = self._run("list-ports")
