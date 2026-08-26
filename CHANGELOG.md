@@ -1,4 +1,9 @@
 # 更新日志
+## v0.1.3 (2026-08-26)
+
+- **ClawHub 展示名 + 分类修正（三源重发）**：v0.1.2 发布到 ClawHub 时展示名未传 `--name`（默认成 `yotta-recon`，漏「元析」前缀），且 `--topics` 被误传成带空格的单个串，导致 ClawHub 把它存成单一 topic `security network recon`、界面连成 `#security-network-recon` 派生新分组。
+- 本版修正：展示名显式传 `元析 yotta-recon`；分类用逗号分隔传 `--topics security,network,recon`，落回 `security` 分组下的三个独立 topic 标签（`#security #network #recon`）。
+- 版本 0.1.2 → 0.1.3（package.json / SKILL.md frontmatter / 引擎 VERSION / 测试断言对齐）。
 ## v0.1.2 (2026-08-26)
 
 - **ClawHub 补分类（三源重发）**：v0.1.1 发布到 ClawHub 时未传 `--categories`/`--topics`，导致技能在 ClawHub 落入 Uncategorized（无分组）；按 2026-08-26「ClawHub 发布必带分类」红线，本版重新发布并补上分类。
