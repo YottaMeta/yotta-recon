@@ -1,4 +1,10 @@
 # 更新日志
+## v0.1.2 (2026-08-26)
+
+- **ClawHub 补分类（三源重发）**：v0.1.1 发布到 ClawHub 时未传 `--categories`/`--topics`，导致技能在 ClawHub 落入 Uncategorized（无分组）；按 2026-08-26「ClawHub 发布必带分类」红线，本版重新发布并补上分类。
+- ClawHub 分类：`security`（分组）+ topics `security, network, recon`；GitHub / npm / ClawHub 三源同步发布。
+- 版本 0.1.1 → 0.1.2（package.json / SKILL.md frontmatter / 引擎 VERSION 对齐）。
+
 ## v0.1.1 (2026-08-26)
 
 - 中文名统一为「元析」（去掉「（元征）」双名）：SKILL.md / README / package.json / 引擎 TOOL_CN 与 docstring / 测试断言 / NOTICE 同步。
