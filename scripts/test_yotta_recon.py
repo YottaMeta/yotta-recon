@@ -525,7 +525,7 @@ class TestCli(unittest.TestCase):
     def test_version(self):
         r = self._run("--version")
         self.assertEqual(r.returncode, 0)
-        self.assertIn("yotta-recon 0.1.3", r.stdout)
+        self.assertIn("yotta-recon 0.1.4", r.stdout)
 
     def test_list_ports(self):
         r = self._run("list-ports")

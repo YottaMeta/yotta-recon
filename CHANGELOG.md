@@ -1,4 +1,15 @@
 # 更新日志
+## v0.1.4 (2026-08-28)
+
+中英双语 README 对齐（老张拍板「英文门面 + 中文全档」）：
+
+- **README.md 改为英文**：作为 GitHub / npm / ClawHub 首页的英文门面（翻译 + 精简，覆盖定位 / 核心价值 / 命令 / 快速使用 / 安装 / 升级卸载 / 常见问题 / 相关技能 / 边界 / 开发校验全流程）。
+- **新增 README.zh-CN.md**：原中文完整主文档整体平移，顶部加语言切换链接。
+- **package.json**：description 改英文；files 加 README.zh-CN.md；版本 0.1.3 → 0.1.4。
+- **ClawHub 分类**：按 §12 安全类统一 --categories security --topics security（历史单串 topic 遗留走网页后台整改）。
+- 版本四处对齐：package.json / SKILL frontmatter / 引擎 VERSION / 文档。
+- 边界（B 方案）：references / CHANGELOG / 测试注释不翻译；SKILL 触发描述保持中文。
+
 ## v0.1.3 (2026-08-26)
 
 - **ClawHub 展示名 + 分类修正（三源重发）**：v0.1.2 发布到 ClawHub 时展示名未传 `--name`（默认成 `yotta-recon`，漏「元析」前缀），且 `--topics` 被误传成带空格的单个串，导致 ClawHub 把它存成单一 topic `security network recon`、界面连成 `#security-network-recon` 派生新分组。
