@@ -43,7 +43,7 @@ It is not tied to any single platform: an agent-agnostic toolkit that works in a
 | **Gentle & tunable** | Concurrency (--concurrency), timeout (--timeout) and rate limit (--rate) are adjustable to avoid scan storms |
 | **Explainable fingerprints** | Product / version / risk level output item by item; risk hints match only, never exploit, and require human verification |
 | **Flexible targets** | IP / CIDR / hostname / target file; custom ports or the built-in common-port table |
-| **Ecosystem distribution** | GitHub + npm + ClawHub synced; install via npx / install.sh / manual copy |
+| **Ecosystem distribution** | GitHub + npm + ClawHub synced; four install methods (npx / git clone / Download ZIP / install.sh) |
 
 ## Commands
 
@@ -85,54 +85,42 @@ python3 scripts/yotta_recon.py scan --targets 127.0.0.1 --report report.md
 
 ## Install
 
-Pick any one of the three methods; skill files are fetched from **npm** (GitHub is slower without a proxy; npm can use a domestic mirror).
+Pick any of the four methods below; the order is the recommended priority. Skill files always come from **npm** (GitHub can be slow without a proxy; npm supports mirrors).
 
-### Method 1: npm (recommended, one-liner)
-```bash
-# domestic mirror (optional): npm config set registry https://registry.npmmirror.com
-npx -y @yottameta/yotta-recon -g
-npx -y @yottameta/yotta-recon --dir <your-skills-dir>   # any agent: install to a specific directory
+### Method 1: npm one-liner (recommended)
+
+```text
+# Optional China mirror: npm config set registry https://registry.npmmirror.com
+npx -y @yottameta/yotta-recon --agent <agent-name>      # install to the agent's default user-level skills dir
+npx -y @yottameta/yotta-recon --dir <your-skills-dir>   # point to the skills dir itself (e.g. ~/.codex/skills)
 ```
-> Not in the preset list? Use --dir to point at the agent's skills directory, or manual copy (method 3). --list shows each agent's default directory. You can also npm pack @yottameta/yotta-recon and unpack it to install via method 2 / 3.
 
-### Method 2: install.sh one-shot
-After obtaining the skill folder (npm pack unpack or git clone), enter the folder:
-```bash
-bash install.sh -g    # user level; bash install.sh --list shows all directories
-bash install.sh --agent codex   # specific agent (--list shows available ones)
-bash install.sh       # project level: auto-detect existing .claude/.cursor/.codex skills dirs
-bash install.sh --dir /path/to/skills
+- `--agent <name>` installs to that agent's default user-level directory; `--list` shows each agent's default directory.
+- `--dir <path>` installs to the given directory; for agents not in the preset list, point `--dir` at their skills directory.
+- If the mirror has not synced the new package (404): add `--registry=https://registry.npmjs.org/` (a proxy may be needed in China), or wait for the mirror cache.
+
+### Method 2: git clone (developers / git available)
+
+```text
+git clone https://github.com/YottaMeta/yotta-recon.git <your-skills-dir>/yotta-recon
 ```
-> Covers 17 agent families including Trae / Qwen / Comate / CodeBuddy / Kimi. Windows users: works with Git Bash; otherwise use method 3.
 
-### Method 3: manual copy
-Copy the whole yotta-recon folder into the target agent's skills directory. Common locations (user level; Windows uses %USERPROFILE%, Linux/macOS uses ~):
+### Method 3: GitHub Download ZIP (manual / no git)
 
-| Agent | User-level directory | Project-level directory |
-|---|---|---|
-| Codex | %USERPROFILE%\.codex\skills\yotta-recon\ | .codex\skills\ |
-| Claude Code | %USERPROFILE%\.claude\skills\yotta-recon\ | .claude\skills\ |
-| Cursor | %USERPROFILE%\.cursor\skills\yotta-recon\ | .cursor\skills\ |
-| Windsurf | %USERPROFILE%\.codeium\windsurf\skills\yotta-recon\ | .windsurf\skills\ |
-| opencode | %USERPROFILE%\.config\opencode\skills\yotta-recon\ | .opencode\skills\ |
-| Gemini | %USERPROFILE%\.gemini\skills\yotta-recon\ | .gemini\skills\ |
-| Goose | %USERPROFILE%\.config\goose\skills\yotta-recon\ | .goose\skills\ |
-| Amp | %USERPROFILE%\.config\agents\skills\yotta-recon\ | .agents\skills\ |
-| Kiro | %USERPROFILE%\.kiro\skills\yotta-recon\ | .kiro\skills\ |
-| WorkBuddy | %USERPROFILE%\.workbuddy\skills\yotta-recon\ | .workbuddy\skills\ |
-| Trae Code CLI | %USERPROFILE%\.traecli\skills\yotta-recon\ | .traecli\skills\ |
-| Trae IDE (CN) | %USERPROFILE%\.trae-cn\skills\yotta-recon\ | .trae\skills\ |
-| Qwen Code | %USERPROFILE%\.qwen\skills\yotta-recon\ | .qwen\skills\ |
-| Comate | %USERPROFILE%\.comate\skills\yotta-recon\ | .comate\skills\ |
-| CodeBuddy | %USERPROFILE%\.codebuddy\skills\yotta-recon\ | .codebuddy\skills\ |
-| Kimi | %USERPROFILE%\.kimi\skills\yotta-recon\ | .kimi\skills\ |
-| Generic AGENTS.md | %USERPROFILE%\.agents\skills\yotta-recon\ | .agents\skills\ |
+On the GitHub repository `YottaMeta/yotta-recon`, click **Code → Download ZIP**, unzip it and put the `yotta-recon` folder into the agent's skills directory.
 
-> If Codex's CODEX_HOME is set, it overrides the default; the same applies to opencode's XDG_CONFIG_HOME. .agents\skills is not a universal directory — only OpenCode / Cursor / Cline / Amp / Kimi / Gemini CLI / GitHub Copilot etc. read it; **Claude Code and Codex do not read it by default**. When unsure, use --dir or let the agent install it.
+### Method 4: install.sh (multi-agent one-liner script)
 
+```text
+bash install.sh --agent <name>   # install to the agent's default user-level directory
+bash install.sh --dir <path>     # install to the given directory
+bash install.sh --list           # list agents -> default directories
+```
+
+> Method 1 uses the npm registry (npmmirror / npmjs) and does not depend on GitHub; Methods 2/3 use GitHub and may fail without a proxy in China.
 ## Upgrade / uninstall
 
-- **Upgrade**: reinstall the latest version to overwrite — npx -y @yottameta/yotta-recon -g or rerun bash install.sh -g. Old files inside the skill folder are overwritten; other project files are untouched.
+- **Upgrade**: reinstall the latest version to overwrite — rerun the install command you used (e.g. `npx -y @yottameta/yotta-recon --agent <name>` or `bash install.sh --agent <name>`). Old files in the skill directory are replaced; other project files are untouched.
 - **Uninstall**: delete the yotta-recon folder under the target agent's skills directory (see the table above). The skill stops taking effect after removal.
 
 ## FAQ
