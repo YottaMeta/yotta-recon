@@ -1,5 +1,9 @@
 # 更新日志
 
+## v0.1.6 (2026-09-13)
+
+- 文档 hygiene 清理：移除历史公开文档中的内部表述，版本同步 0.1.6。
+
 ## v0.1.5 (2026-08-29)
 
 - 安装方式统一为四方式（对齐发布规范 §3.3.1）：方式一 `npx -y @yottameta/yotta-recon --agent <name>` / `--dir <dir>`（推荐，走 npm 源）；方式二 `git clone https://github.com/YottaMeta/yotta-recon.git`；方式三 GitHub Download ZIP；方式四 `bash install.sh --agent/--dir/--list`。移除 `npx skills` 与 `-g` 推荐；中英双 README 安装节同步。
@@ -7,7 +11,7 @@
 - 无功能变更（仅文档与版本同步）。
 ## v0.1.4 (2026-08-28)
 
-中英双语 README 对齐（老张拍板「英文门面 + 中文全档」）：
+中英双语 README 对齐（英文门面 + 中文全档）：
 
 - **README.md 改为英文**：作为 GitHub / npm / ClawHub 首页的英文门面（翻译 + 精简，覆盖定位 / 核心价值 / 命令 / 快速使用 / 安装 / 升级卸载 / 常见问题 / 相关技能 / 边界 / 开发校验全流程）。
 - **新增 README.zh-CN.md**：原中文完整主文档整体平移，顶部加语言切换链接。
@@ -34,7 +38,7 @@
 
 ## v0.1.0 (2026-08-26)
 
-YottaMeta 自有实现首版（网络侦察方向参考开源社区 network-security-scanner 类技能思路，已完全重写，零依赖、无上游代码）：
+YottaMeta 自有实现首版（网络侦察方向参考开源社区 network-security-scanner 类技能思路，已完全重写，零依赖）：
 
 - **零依赖自研引擎**（scripts/yotta_recon.py，Python 3.8+ 标准库）：TCP connect 端口扫描（并发/限速/超时可调）+ 服务 banner 抓取 + 协议探测（HTTP / SSH / FTP / SMTP / POP3 / IMAP / Redis / MySQL / PostgreSQL / TLS / MongoDB）。
 - **Scope Guard 授权纪律**：未授权目标默认拒绝（退出码 3）；回环地址默认放行；--scope 授权文件 / --assume-authorized --yes 显式授权；check-scope 授权预检；交互确认（AI 无输入自动拒绝）。
@@ -43,4 +47,4 @@ YottaMeta 自有实现首版（网络侦察方向参考开源社区 network-secu
 - **本机清单**：local 子命令读取本机监听端口（Linux/macOS 读 /proc/net/tcp；Windows 用系统 netstat 只读查询）。
 - **测试**：scripts/test_yotta_recon.py 61 项全绿（解析 / Scope Guard / 真实本地服务指纹 / 输出 / CLI 退出码）。
 - **文档**：SKILL.md / README.md / references（scope-guard / service-fingerprints / protocol-probes）/ assets/banner.png。
-- 版权：YottaMeta 纯自有 MIT + NOTICE 品牌声明；README 一行上游致谢。
+- 版权：YottaMeta 纯自有 MIT + NOTICE 品牌声明。

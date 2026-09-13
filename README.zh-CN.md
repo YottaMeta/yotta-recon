@@ -141,4 +141,4 @@ bash install.sh --list           # 列出智能体 -> 默认目录
 
 ## 许可证
 
-MIT © YottaMeta —— 详见 [LICENSE](./LICENSE)。品牌声明见 [NOTICE](./NOTICE)。上游来源致谢：网络侦察方向参考开源社区 network-security-scanner 类技能思路，实现为 YottaMeta 自有、零依赖重写。
+MIT © YottaMeta —— 详见 [LICENSE](./LICENSE)。品牌声明见 [NOTICE](./NOTICE)。实现说明：网络侦察方向参考开源社区 network-security-scanner 类技能思路，实现为 YottaMeta 自有、零依赖重写。
