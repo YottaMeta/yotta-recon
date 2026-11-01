@@ -48,7 +48,7 @@ try:
 except Exception:
     pass
 
-VERSION = "0.1.8"
+VERSION = "0.1.9"
 TOOL = "yotta-recon"
 TOOL_CN = "元析"
 
